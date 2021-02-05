@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+  <head>
+  <meta charset="utf-8"/> 
+  <link rel="stylesheet"  href="light-mode.css" id=theme>
+  <title>title</title>
+</head>
+<body>
+  <div class="wrapper"> 
+    <h1>Demonsration of a dark and light theme</h1>
+    <button id="switchMode">Switch</button>
+  </div> 
+
+
+<script>
+  let switchMode = document.getElementById("switchMode");
+
+switchMode.onclick = function(){
+  let theme = document.getElementById("theme");
+
+
+  if(theme.getAttribute("href") == "light-mode.css"){
+    theme.href = "dark-mode.css";
+  }
+  else{
+    theme.href="light-mode.css";
+  }
+}
+</script>
+</body>
+</html>
