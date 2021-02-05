@@ -1,0 +1,33 @@
+*{
+	font-family: "Sargoe UI";
+	font-weight:200;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	transition:1s;
+}
+h1{
+	text-align: center;
+}
+.wrapper{
+	height:100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+}
+button{
+	padding:8px;
+	background-color: #000;
+	color:#fff;
+	border-radius: 3px;
+	font-size:1rem;
+	margin-top:1%;
+	outline:none;
+}
+button:hover{
+	background: rgb(50, 40, 10); 
+}
