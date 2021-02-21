@@ -1,0 +1,131 @@
+<!-- Курс Modern Javascript на сайте FructCode.com -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread operator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    	* {
+    box-sizing: border-box;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 ,h6{
+  font-weight: 200;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+span {
+	display: block;
+	cursor: pointer;
+	font-size: 17px;
+	padding-bottom: 2%;
+	width: 100%;
+	color: #cacaca;
+}
+
+span::before {
+    content: "\2714 ";
+    padding-right: 8px;
+}
+
+.checked {
+    color: #37ab37;
+}
+    </style>
+</head>
+<body>
+
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6">
+	 		<h1>Список дел на сегодня</h1>
+	 		<div id="todolist"></div>
+	 	</div>
+	    <div class="col-3"></div>
+    </div>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<script type="text/babel">
+	
+		var today = [
+			'Украсть мышку',
+			'Приручить деда',
+			'Уехать в Москву на поезде',
+			'Начать делать говно игры',
+			'Остаться в Москве',
+			'Найти Мак дак'
+		];
+
+	
+		var todolist = ['Выйти на майдан', ...today];
+		
+		var list = document.getElementById('todolist');
+
+		for(let i = 0; i < todolist.length; i++) {
+			let item = document.createElement('span');
+			item.appendChild(document.createTextNode(todolist[i]));
+
+			
+			let isChecked = 0;
+
+			
+			if(i === 0) {
+				isChecked = 1;
+				item.classList.add("checked");
+			}
+
+			
+			item.onclick = function() {
+				
+				if(!isChecked) {
+					item.classList.add("checked");
+					isChecked = 1;
+				} else {
+					item.classList.remove("checked");
+					isChecked = 0;
+				}
+			}
+
+			list.appendChild(item);
+		}
+
+	</script>
+    
+</body>
+</html>
